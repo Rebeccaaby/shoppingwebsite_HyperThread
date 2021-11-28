@@ -1,19 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+//import Pay from './Pay';
 
-function App() {
-  return (
-      <Router>
-        <Switch>
-          <Route path = "/pay">
-            <Pay/>
-          </Route>
-          <Route path ="/success">
-            <Success/>
-          </Route>
-        </Switch>
-      </Router>
-  );
+const App = () => {
+    return (
+        <Router>
+            <Switch>
+                <Route path = "/pay">
+                    <Pay />
+                </Route>
+                <Route path ="/success">
+                    <Success />
+                </Route>
+            </Switch>
+        </Router>
+    );
 };
 
 export default App;

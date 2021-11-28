@@ -1,6 +1,33 @@
 import StripeCheckout from 'react-stripe-checkout';
+import {useState,useEffect} from "react";
+import App from "./App";
+
+const Key = "pk_test_51JztsBD5U5jmu583cITzHMMQIZ86FUGBsAWrfw8LZQG1PJyK6q92SxNQIV8Zh6exMgoQ65zbgutOYTnv6Eoz0rRc00XNkiAgy8"
 
 const Pay = () =>{
+    const [stripeToken,setStripeToken] = useState(null)
+
+    const onToken = (token) => {
+        setStripeToken(token);
+    };
+
+    useEffect(()=>{
+        const makeRequest = async function(){
+            try{
+                const res = await axios.post("http//localhost:3000/checkout/payment",
+                    {
+                        tokenId: stripeToken.id,
+                        amount: 2000
+                    }
+                    );
+                console.log(res.data);
+            }catch(err){
+                console.log(err);
+            }
+        };
+        stripeToken && makeRequest();
+    },[stripeToken])
+
     return(
         <div
             style = {{
@@ -9,11 +36,16 @@ const Pay = () =>{
                 alignItems: "center",
                 justifyContent: "center",
             }}
-            >
-
+        >
             <StripeCheckout
                 name=" HyperThread"
-                image=""
+                image="frontend/src/img.png"
+                billingAddress
+                shippingAddress
+                description= "Total is $20"
+                amount={2000}
+                token={onToken}
+                stripeKey={Key}
             >
                 <button>
                     style={{
@@ -32,4 +64,4 @@ const Pay = () =>{
         </div>
     );
 }
-
+export default Pay;
