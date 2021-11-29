@@ -1,4 +1,4 @@
-//import Pay from './Pay';
+import Pay from './Pay';
 
 const App = () => {
     return (
