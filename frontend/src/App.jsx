@@ -6,7 +6,7 @@ const App = () => {
     return (
         <Router>
             <Switch>
-                <Route path = "/pay">
+                <Route path = "/Pay">
                     <Pay />
                 </Route>
                 <Route path ="/success">

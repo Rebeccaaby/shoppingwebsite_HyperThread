@@ -1,12 +1,13 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import {useState,useEffect} from "react";
+import axios from "axios";
 
 
 const Key = "pk_test_51JztsBD5U5jmu583cITzHMMQIZ86FUGBsAWrfw8LZQG1PJyK6q92SxNQIV8Zh6exMgoQ65zbgutOYTnv6Eoz0rRc00XNkiAgy8"
 
 const Pay = () =>{
-    const [stripeToken,setStripeToken] = useState(null)
+    const [stripeToken,setStripeToken] = useState(null);
 
     const onToken = (token) => {
         setStripeToken(token);
