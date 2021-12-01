@@ -1,6 +1,7 @@
+import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import {useState,useEffect} from "react";
-import App from "./App";
+
 
 const Key = "pk_test_51JztsBD5U5jmu583cITzHMMQIZ86FUGBsAWrfw8LZQG1PJyK6q92SxNQIV8Zh6exMgoQ65zbgutOYTnv6Eoz0rRc00XNkiAgy8"
 
@@ -19,7 +20,7 @@ const Pay = () =>{
                         tokenId: stripeToken.id,
                         amount: 2000
                     }
-                    );
+                );
                 console.log(res.data);
             }catch(err){
                 console.log(err);
@@ -38,18 +39,18 @@ const Pay = () =>{
             }}
         >
             <StripeCheckout
-                name=" HyperThread"
-                image="frontend/src/img.png"
+                name="HyperThread"
+                //image="frontend/src/img.png"
                 billingAddress
                 shippingAddress
-                description= "Total is $20"
+                description= "Total: $20"
                 amount={2000}
                 token={onToken}
                 stripeKey={Key}
             >
                 <button>
                     style={{
-                        border: "none",
+                    border: "none",
                     width:120,
                     borderRadius:5,
                     padding: "20px",
