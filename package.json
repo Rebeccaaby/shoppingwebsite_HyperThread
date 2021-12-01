@@ -19,6 +19,7 @@
     "mongoose": "^6.0.13",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.15",
+    "react-router-dom": "^6.0.2",
     "react-stripe-checkout": "^2.6.3",
     "stripe": "^8.191.0"
   }
