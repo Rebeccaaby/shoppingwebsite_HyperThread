@@ -4,17 +4,17 @@ var stripe = require('stripe')("sk_test_51JztsBD5U5jmu583xiWUMufHjZzlrGvX1bVYy4u
 
 router.post("/payment",function(req,res){
     stripe.charges.create({
-        source: req.body.tokenId,
-        amount: req.body.amount,
-        currency:"usd"
-    }, function(stripeError,stripeResponse){
-        if(stripeError){
-            res.status(500).json(stripeError);
-        }else{
+            source: req.body.tokenId,
+            amount: req.body.amount,
+            currency:"usd"
+        }, function(stripeError,stripeResponse){
+            if(stripeError){
+                res.status(500).json(stripeError);
+            }else{
 
-            res.status(200).json(stripeResponse);
+                res.status(200).json(stripeResponse);
+            }
         }
-    }
     );
 });
 

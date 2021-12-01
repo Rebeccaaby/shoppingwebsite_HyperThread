@@ -70,7 +70,7 @@ router.get("/", async function(req,res){
         }
 
         //var customers = query ? await Customer.find().sort({ _id:-1 }).limit(5)
-           // : await Customer.find();
+        // : await Customer.find();
 
         res.status(200).json({products});
     }catch(err){

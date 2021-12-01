@@ -25,8 +25,8 @@ router.put("/:id",verifyTokenAndAuthorization, async function(req, res, customer
 
     try{
         var updatedCustomer = await Customer.findByIdAndUpdate(req.params.id, {
-            $set: req.body,
-        },{new:true}
+                $set: req.body,
+            },{new:true}
         );
 
         res.status(200).json(updatedCustomer);

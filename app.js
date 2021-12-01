@@ -5,7 +5,6 @@ var path = require('path');
 var mongoose = require('mongoose');
 var dotenv = require("dotenv");
 
-
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -15,7 +14,7 @@ var productRouter = require('./routes/product');
 var shoppingCartRouter = require('./routes/shoppingCart');
 var orderRouter = require('./routes/order');
 var stripeRouter = require('./routes/stripe');
-var App = require('./frontend/src/App.jsx');
+//var App = require('./frontend/src/App.jsx');
 var cors = require("cors");
 
 var app = express();
@@ -39,7 +38,7 @@ app.use(express.json());
 //app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors);
+app.use(cors());
 app.use('/', indexRouter);
 app.use('/authentication', authRouter);
 app.use('/users', usersRouter);
